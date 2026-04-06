@@ -1375,6 +1375,9 @@ audio {
         justify-content: center;
         background: transparent !important;
         border: none !important;
+        position: relative !important;
+        margin-top: 30px;
+        margin-bottom: 50px;
     }
     .btn-primary {
         border-radius: 30px !important;
@@ -1396,4 +1399,12 @@ audio {
         background: #ffb300 !important;
     }
     
+    
     body, html { overflow-x: hidden; }
+
+    /* Move can-zoom text so it doesn't overlap on top of album images */
+    .can-zoom {
+        top: 85% !important;
+        z-index: 9999 !important;
+        filter: drop-shadow(0 2px 2px #111) !important;
+    }
