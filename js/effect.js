@@ -4,35 +4,20 @@ $(window).load(function(){
 });
 $('document').ready(function(){
 		var vw;
-        var totalBalloons = 19;
+		var totalBalloons = 7;
 
-        // Custom function to align balloons across 3 rows intelligently
         function alignMessage() {
             var w = $(window).width();
             var vw = w / 2;
-            var gap = Math.min(w / 8.5, 75); // clamp gap tighter for narrow mobile screens
-            var topOffset = w < 600 ? 50 : 80;
-            var topScale = w < 600 ? 80 : 130;
+            var gap = Math.min(w / 7.5, 90); 
+            var topOffset = w < 600 ? 100 : 200;
             
             for(var i=1; i<=totalBalloons; i++) {
                 $('#b'+i).stop();
                 var targetId = $('#b'+i+i).length ? '#b'+i+i : '#b'+i; 
-                var topPos, leftPos;
-                var halfBalloonWidth = $(targetId).width() / 2;
+                var leftPos = vw - (7*gap)/2 + ((i-0.5)*gap);
                 
-                if (i <= 5) { // HAPPY
-                    topPos = topOffset;
-                    leftPos = vw - (5*gap)/2 + ((i-1)*gap);
-                } else if (i <= 13) { // BIRTHDAY
-                    topPos = topOffset + topScale;
-                    leftPos = vw - (8*gap)/2 + ((i-6)*gap);
-                } else { // MYLOVE
-                    topPos = topOffset + topScale * 2;
-                    leftPos = vw - (6*gap)/2 + ((i-14)*gap);
-                }
-                
-                // Animate smoothly to explicit positions incorporating balloon width offsets and safe mobile clamping
-                $(targetId).animate({top: topPos, left: leftPos}, 500); 
+                $(targetId).animate({top: topOffset, left: leftPos}, 500); 
             }
         }
 
