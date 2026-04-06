@@ -96,3 +96,81 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
     border: 4px solid #fff !important;
 }
+
+
+/* =======================================================
+   CARTOONIST UI OVERHAUL
+   ======================================================= */
+
+/* Pure CSS Cartoon Balloons */
+.balloons {
+    background-image: none !important;
+    background: var(--c) !important;
+    width: 80px !important;
+    height: 100px !important;
+    border-radius: 50% 50% 50% 50% / 45% 45% 55% 55% !important;
+    border: 3px solid #111 !important;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.3), inset 5px 5px 15px rgba(255,255,255,0.4) !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    opacity: 1 !important;
+}
+
+/* The balloon knot */
+.balloons::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid var(--c);
+    z-index: -1;
+}
+
+/* The balloon text */
+.balloons h2 {
+    color: #fff !important;
+    text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111 !important;
+    font-weight: 900 !important;
+    font-size: 40px !important;
+}
+
+/* Playful Cartoon Typography */
+p, h1, h2 {
+    font-family: 'Signika', 'Comic Sans MS', sans-serif !important;
+    font-weight: bold;
+}
+
+/* Tactile Bouncy Cartoon Buttons */
+.btn-primary {
+    border-radius: 30px !important;
+    border: 4px solid #111 !important;
+    box-shadow: 0 6px 0 #111 !important;
+    font-weight: 900 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px;
+    background: #ffcf33 !important;
+    color: #111 !important;
+    transition: all 0.1s ease !important;
+    margin: 6px;
+}
+
+.btn-primary:active {
+    transform: translateY(6px) !important;
+    box-shadow: 0 0px 0 #111 !important;
+    background: #ffc107 !important;
+}
+
+.btn-primary:hover {
+    background: #ffeb3b !important;
+    color: #111 !important;
+}
+
+.navbar-fixed-bottom { background: transparent !important; }
+
