@@ -1406,6 +1406,11 @@ audio {
 
     /* Mobile Explicit Layout Handling */
     @media (max-width: 768px) {
+        /* Disabling Balloons on Mobile */
+        .balloons, .balloon-border {
+            display: none !important;
+        }
+
         .album-photo {
             width: 95px !important;
             padding: 5px 5px 0 5px !important;
@@ -1416,10 +1421,12 @@ audio {
             margin: 5px 0 4px 0 !important;
             line-height: 1.1;
         }
-        .album-left-1 { top: 90px !important; left: -5px !important; }
-        .album-left-2 { top: 290px !important; left: -5px !important; }
-        .album-right-1 { top: 90px !important; right: -5px !important; }
-        .album-right-2 { top: 290px !important; right: -5px !important; }
+        
+        /* Push Polaroids lower down the screen so they don't cover the Dropdown Banner */
+        .album-left-1 { top: 160px !important; left: -5px !important; }
+        .album-left-2 { top: 340px !important; left: -5px !important; }
+        .album-right-1 { top: 160px !important; right: -5px !important; }
+        .album-right-2 { top: 340px !important; right: -5px !important; }
 
         body { padding-bottom: 20px !important; }
         
