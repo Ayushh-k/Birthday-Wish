@@ -1,5 +1,5 @@
 /* =======================================================
-   FULL CARTOON COMIC THEME OVERHAUL 🎨
+   FULL CARTOON COMIC THEME OVERHAUL & RESPONSIVE POLISH 🎨
    ======================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&display=swap');
@@ -11,29 +11,20 @@ body, h1, h2, p, button {
 
 /* 1. Playful Animated Backgrounds */
 body {
+    background: #000 !important; /* Starts purely black */
+    overflow-x: hidden;
+}
+.peach-after {
+    /* Colorful party background reveals after turning on lights */
     background: repeating-linear-gradient(
         -45deg,
         #4FC3F7, #4FC3F7 40px,
         #29B6F6 40px, #29B6F6 80px
     ) !important;
     background-size: 114px 114px !important;
-    animation: scroll_bg 4s linear infinite !important;
-}
-.peach-after {
-    /* Colorful party background after turning on lights */
-    background: repeating-linear-gradient(
-        -45deg,
-        #FF8A65, #FF8A65 40px,
-        #FF7043 40px, #FF7043 80px
-    ) !important;
-    background-size: 114px 114px !important;
-    animation: scroll_bg_fast 2s linear infinite !important;
+    animation: scroll_bg_fast 3s linear infinite !important;
 }
 
-@keyframes scroll_bg {
-    0% { background-position: 0 0; }
-    100% { background-position: 114px 114px; }
-}
 @keyframes scroll_bg_fast {
     0% { background-position: 0 0; }
     100% { background-position: 114px 114px; }
@@ -47,35 +38,23 @@ body {
     box-shadow: 12px 12px 0 #111 !important;
     padding: 30px !important;
     margin: 40px auto !important;
-    max-width: 80% !important;
+    max-width: 90% !important;
+    width: 600px !important;
+    min-height: 250px !important; /* Forces layout stability for responsive screen so text never overlaps */
     position: relative !important;
     display: none;
+    z-index: 100 !important;
 }
 
-/* Speech bubble tail */
-.message::after {
-    content: '';
-    position: absolute;
-    bottom: -35px;
-    left: 80px;
-    border-width: 35px 35px 0 0;
-    border-style: solid;
-    border-color: #ffffff transparent transparent transparent;
-    z-index: 2;
-}
-.message::before {
-    content: '';
-    position: absolute;
-    bottom: -48px;
-    left: 74px;
-    border-width: 44px 44px 0 0;
-    border-style: solid;
-    border-color: #111 transparent transparent transparent;
-    z-index: 1;
-}
-
+/* Flex layout keeps paragraphs aligned beautifully */
 .message p {
-    font-size: 35px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    margin: 0;
+    font-size: clamp(24px, 6vw, 40px) !important;
     color: #FF4081 !important;
     text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111 !important; 
     line-height: 1.4 !important;
@@ -85,11 +64,12 @@ body {
 .balloons {
     background-image: none !important;
     background: var(--c) !important;
-    width: 80px !important;
-    height: 100px !important;
+    /* Absolute responsive clamping so balloons never spill outside the viewport! */
+    width: clamp(45px, 8vw, 80px) !important;
+    height: clamp(55px, 10vw, 100px) !important;
     border-radius: 50% 50% 50% 50% / 45% 45% 55% 55% !important;
-    border: 5px solid #111 !important;
-    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.2), inset 10px 10px 0 rgba(255,255,255,0.4) !important;
+    border: clamp(3px, 1vw, 5px) solid #111 !important;
+    box-shadow: inset -5px -5px 0 rgba(0,0,0,0.2), inset 5px 5px 0 rgba(255,255,255,0.4) !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
@@ -100,14 +80,12 @@ body {
 .balloons::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: clamp(-10px, -2vw, -15px);
     left: 50%;
     transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 15px solid var(--c);
+    border-left: clamp(4px, 1vw, 8px) solid transparent;
+    border-right: clamp(4px, 1vw, 8px) solid transparent;
+    border-bottom: clamp(10px, 2vw, 15px) solid var(--c);
     z-index: -1;
     filter: drop-shadow(0 4px 0 #111) drop-shadow(-4px 0 0 #111) drop-shadow(4px 0 0 #111);
 }
@@ -115,7 +93,7 @@ body {
 .balloons h2 {
     color: #fff !important;
     text-shadow: 3px 3px 0 #111, -3px -3px 0 #111, 3px -3px 0 #111, -3px 3px 0 #111 !important; 
-    font-size: 55px !important;
+    font-size: clamp(25px, 5vw, 55px) !important;
     font-weight: 900 !important;
     margin: 0 !important;
     display: none;
@@ -130,26 +108,26 @@ body {
 /* 4. Playful Cartoon UI Buttons */
 .btn-primary {
     border-radius: 50px !important;
-    border: 5px solid #111 !important;
-    box-shadow: 0 10px 0 #111 !important;
-    font-size: 18px !important;
+    border: clamp(3px, 1vw, 5px) solid #111 !important;
+    box-shadow: 0 8px 0 #111 !important;
+    font-size: clamp(12px, 3vw, 18px) !important;
     text-transform: uppercase !important;
     background: #ffeb3b !important;
     color: #111 !important;
     transition: all 0.1s ease !important;
-    padding: 12px 25px !important;
-    margin: 10px;
+    padding: clamp(8px, 2vw, 12px) clamp(15px, 4vw, 25px) !important;
+    margin: 5px;
     cursor: pointer !important;
     position: relative;
     top: 0;
 }
 .btn-primary:active {
-    top: 10px !important;
+    top: 8px !important;
     box-shadow: 0 0 0 #111 !important;
     background: #ffc107 !important;
 }
 
-.navbar-fixed-bottom { background: transparent !important; }
+.navbar-fixed-bottom { background: transparent !important; display: flex; flex-wrap: wrap; justify-content: center; }
 
 /* 5. Thick borders on Lights */
 .bulb {
@@ -168,9 +146,13 @@ body {
     border-bottom-width: 25px !important;
     box-shadow: 10px 10px 0 #111 !important;
     border-radius: 5px !important;
+    max-width: 80% !important; /* ensures photos scale neatly down on mobile */
+    height: auto !important;
 }
 
 /* 7. Flat Bold Cartoon Cake Overrides */
+.cake-cover { margin-top: 50px; z-index: 10; position: relative;}
+.cake { margin: 0 auto; position: relative !important; left: auto !important; display: block;}
 .cake:after {
   background: #f8f8f8 !important;
   box-shadow: 0 10px 0 #111 !important;
