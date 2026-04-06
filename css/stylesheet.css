@@ -1410,3 +1410,31 @@ audio {
         z-index: 9999 !important;
         filter: drop-shadow(0 2px 2px #111) !important;
     }
+
+    /* Mobile Explicit Layout Handling */
+    @media (max-width: 768px) {
+        .container {
+            transform: scale(0.65);
+            transform-origin: top center;
+        }
+        .navbar-fixed-bottom {
+            bottom: 0px !important;
+            padding: 5px 0 !important;
+            z-index: 10000;
+            background: #fff !important; /* Safety background on mobile to cover overlap */
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1) !important;
+        }
+        .navbar-fixed-bottom .col-md-6 {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .btn-primary {
+            flex: 0 0 auto !important; /* Block buttons from shrinking */
+            margin: 5px 10px !important;
+            font-size: 14px !important;
+        }
+    }
