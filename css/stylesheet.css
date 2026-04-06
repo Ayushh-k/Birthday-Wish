@@ -1445,7 +1445,7 @@ audio {
             padding-bottom: 0 !important; 
             text-align: center !important;
             width: 100% !important;
-            z-index: 500 !important; /* Force visibly above background elements */
+            z-index: 10000 !important; /* Dominate everything, including the 9999 can-zoom image */
         }
         
         .message p {
