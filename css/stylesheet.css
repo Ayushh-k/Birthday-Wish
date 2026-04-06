@@ -1430,11 +1430,17 @@ audio {
 
     /* Mobile Explicit Layout Handling */
     @media (max-width: 768px) {
-        body { padding-bottom: 70px !important; }
+        body { padding-bottom: 20px !important; }
         .container {
             transform: scale(0.65);
             transform-origin: top center;
-            margin-bottom: -300px; /* Removes massive empty space created by scaled layout footprint */
+        }
+        .message {
+            margin-top: 100px !important; 
+            transform: scale(1.4);
+            transform-origin: top center;
+            padding-bottom: 300px !important; /* Pushes the message directly into the empty bottom display */
+            text-align: center;
         }
         .navbar-fixed-bottom {
             bottom: 0px !important;
