@@ -1436,16 +1436,23 @@ audio {
         }
         
         .message {
-            margin-top: 150px !important; 
+            position: absolute !important;
+            top: 420px !important; /* Safely floating below the cake centroid */
+            left: 0 !important;
+            right: 0 !important;
+            margin-top: 0 !important; 
             transform: none !important; 
-            padding-bottom: 250px !important; 
-            text-align: center;
+            padding-bottom: 0 !important; 
+            text-align: center !important;
             width: 100% !important;
+            z-index: 500 !important; /* Force visibly above background elements */
         }
         
         .message p {
-            font-size: 40px !important; /* Naturally enlarge deeply legible fonts mapping layout scaling */
-            margin-bottom: 12px;
+            font-size: 34px !important; /* Resized for mobile crispness */
+            margin: 0 auto 12px auto !important;
+            width: 90% !important; /* Keep it inside display buffers safely */
+            text-align: center !important;
         }
         .navbar-fixed-bottom {
             bottom: 0px !important;
