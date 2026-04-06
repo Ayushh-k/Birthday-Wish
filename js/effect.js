@@ -4,16 +4,38 @@ $(window).load(function(){
 });
 $('document').ready(function(){
 		var vw;
-        var totalBalloons = 14;
+        var totalBalloons = 19;
+
+        // Custom function to align balloons across 3 rows intelligently
+        function alignMessage() {
+            var vw = $(window).width() / 2;
+            var gap = Math.min($(window).width() / 12, 70); // Ensure they fit on small screens
+            
+            for(var i=1; i<=totalBalloons; i++) {
+                $('#b'+i).stop();
+                var targetId = $('#b'+i+i).length ? '#b'+i+i : '#b'+i; 
+                var topPos, leftPos;
+                
+                if (i <= 5) { // HAPPY
+                    topPos = 80;
+                    leftPos = vw - (5*gap)/2 + ((i-1)*gap);
+                } else if (i <= 13) { // BIRTHDAY
+                    topPos = 210;
+                    leftPos = vw - (8*gap)/2 + ((i-6)*gap);
+                } else { // MYLOVE
+                    topPos = 340;
+                    leftPos = vw - (6*gap)/2 + ((i-14)*gap);
+                }
+                
+                $(targetId).animate({top: topPos, left: leftPos}, 500); 
+            }
+        }
 
 		$(window).resize(function(){
-			 vw = $(window).width()/2;
-             var w = $(window).width();
-             var step = w / (totalBalloons + 1);
-             for(var i=1; i<=totalBalloons; i++) {
-                 $('#b'+i).stop();
-                 $('#b'+i+i).animate({top:240, left: (step * i) - 50},500); 
-             }
+            // Only realign if they have already been forced into the message state (signified by checking opacity or b11)
+            if ($('#b11').length) {
+                alignMessage();
+            }
 		});
 
 	$('#turn_on').click(function(){
@@ -70,13 +92,11 @@ $('document').ready(function(){
 		$('.balloon-border').animate({top:-500},8000);
         
         for(var i=1; i<=totalBalloons; i++) {
-            // Apply sway animations, alternating between one and two
             if (i % 2 === 0) {
                 $('#b'+i).addClass('balloons-rotate-behaviour-one');
             } else {
                 $('#b'+i).addClass('balloons-rotate-behaviour-two');
             }
-            // start loop
             loopBalloon('b'+i);
         }
 
@@ -101,15 +121,12 @@ $('document').ready(function(){
 
 		
 	$('#wish_message').click(function(){
-		 vw = $(window).width()/2;
-         var w = $(window).width();
-         var step = w / (totalBalloons + 1);
-
+         // Rename IDs to lock them out of resize/float conflicts
          for(var i=1; i<=totalBalloons; i++) {
-             $('#b'+i).stop();
              $('#b'+i).attr('id','b'+i+i);
-             $('#b'+i+i).animate({top:240, left: (step * i) - 50},500); 
          }
+         
+         alignMessage();
 
 		$('.balloons').css('opacity','0.9');
 		$('.balloons h2').fadeIn(3000);
@@ -124,7 +141,7 @@ $('document').ready(function(){
 			$('.message').fadeIn('slow');
 		});
 
-		var $messages = $(".message p");   // only inside .message
+		var $messages = $(".message p");   
 		var totalMessages = $messages.length;
 
 		function msgLoop(i) {
@@ -133,7 +150,6 @@ $('document').ready(function(){
 					msgLoop(i + 1);
 				});
 			} else {
-				// Last message stays + cake comes back
 				$messages.eq(i).fadeIn('slow').promise().done(function(){
 					$('.cake').fadeIn('fast');
 				});
@@ -149,13 +165,11 @@ $('document').ready(function(){
 $('.album-photo').click(function() {
     var src = $(this).attr('src');
     $('#lightbox img').attr('src', src);
-
-    // Force flex only when showing
     $('#lightbox').css('display', 'flex').hide().fadeIn('fast');
 });
 
 // Close when clicking outside image
 $('#lightbox').click(function(e) {
-    if (e.target !== this) return; // only close if background clicked
+    if (e.target !== this) return; 
     $('#lightbox').fadeOut('fast');
 });
