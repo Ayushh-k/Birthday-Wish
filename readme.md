@@ -4,15 +4,17 @@ A beautiful, animated static website to wish someone a very Happy Birthday!
 
 ## 🚀 How to Run Locally
 
-Since this is a static site, you have two options:
+Since this is a static site, you have two simple options:
 
-**Option 1: Node.js (Recommended)**
-1. Run `npm install` to install the local server.
-2. Run `npm run server-node` to start the server.
-3. Open `http://localhost:8081` in your browser.
+**Option 1: Using your Web Browser (Easiest)**
+Simply double-click on `index.html` in your file explorer to open it in your default web browser!
 
-**Option 2: Direct File Open**
-Simply double-click on `index.html` in your file explorer to open it in your default web browser.
+**Option 2: Using Node.js (Local Server)**
+If you prefer running a local server to avoid browser cors restrictions, simply run the following command in your terminal from the project folder:
+```bash
+npx http-server -p 8081
+```
+Then open `http://localhost:8081` in your browser.
 
 ## 🎨 Customizing
 
