@@ -1413,9 +1413,11 @@ audio {
 
     /* Mobile Explicit Layout Handling */
     @media (max-width: 768px) {
+        body { padding-bottom: 70px !important; }
         .container {
             transform: scale(0.65);
             transform-origin: top center;
+            margin-bottom: -300px; /* Removes massive empty space created by scaled layout footprint */
         }
         .navbar-fixed-bottom {
             bottom: 0px !important;
