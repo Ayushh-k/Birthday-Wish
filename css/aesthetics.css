@@ -1,0 +1,40 @@
+/* Custom Aesthetic UI Enhancements */
+
+/* Super Realistic Drop Shadows on the Lights */
+.bulb-glow-yellow, .bulb-glow-yellow-after { filter: drop-shadow(0px 0px 30px #F2B300); }
+.bulb-glow-red, .bulb-glow-red-after { filter: drop-shadow(0px 0px 30px #D14D39); }
+.bulb-glow-blue, .bulb-glow-blue-after { filter: drop-shadow(0px 0px 30px #0719D4); }
+.bulb-glow-green, .bulb-glow-green-after { filter: drop-shadow(0px 0px 30px #99C96A); }
+.bulb-glow-pink, .bulb-glow-pink-after { filter: drop-shadow(0px 0px 30px #E91E63); }
+.bulb-glow-orange, .bulb-glow-orange-after { filter: drop-shadow(0px 0px 30px #FF9800); }
+
+/* Swaying Animation for all Balloons */
+.balloons-rotate-behaviour-one {
+    animation: balloon_sway_one 4s ease-in-out infinite alternate !important;
+}
+.balloons-rotate-behaviour-two {
+    animation: balloon_sway_two 5s ease-in-out infinite alternate !important;
+}
+
+@keyframes balloon_sway_one {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(10deg); }
+}
+
+@keyframes balloon_sway_two {
+    0% { transform: rotate(8deg); }
+    100% { transform: rotate(-6deg); }
+}
+
+/* Enhancing Body Glow Background for party feel */
+.peach-after {
+    animation: peach_rich_alive linear 8s infinite !important;
+}
+
+@keyframes peach_rich_alive {
+    0% { background-color: #FFA07A; }
+    25% { background-color: #FFB6C1; }
+    50% { background-color: #FFDAB9; }
+    75% { background-color: #E6E6FA; }
+    100% { background-color: #FFA07A; }
+}
