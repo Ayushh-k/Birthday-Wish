@@ -1406,8 +1406,8 @@ audio {
 
     /* Mobile Explicit Layout Handling */
     @media (max-width: 768px) {
-        /* Disabling Balloons on Mobile */
-        .balloons, .balloon-border {
+        /* Hiding Balloon-Border ONLY specifically on Mobile */
+        .balloon-border {
             display: none !important;
         }
 

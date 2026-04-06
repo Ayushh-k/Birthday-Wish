@@ -14,10 +14,16 @@ $('document').ready(function(){
             
             for(var i=1; i<=totalBalloons; i++) {
                 $('#b'+i).stop();
-                var targetId = $('#b'+i+i).length ? '#b'+i+i : '#b'+i; 
-                var leftPos = vw - (7*gap)/2 + ((i-0.5)*gap);
+                var targetId = $('#b'+i+i).length ? 'b'+i+i : 'b'+i; 
                 
-                $(targetId).animate({top: topOffset, left: leftPos}, 500); 
+                if (w < 768) {
+                    /* Mobile strictly randomizes the floating rather than aligning on a strict row */
+                    loopBalloon(targetId);
+                } else {
+                    /* Desktop strictly aligns characters left-to-right */
+                    var leftPos = vw - (7*gap)/2 + ((i-0.5)*gap);
+                    $('#'+targetId).animate({top: topOffset, left: leftPos}, 500); 
+                }
             }
         }
 
@@ -71,9 +77,10 @@ $('document').ready(function(){
 	});
 
     function loopBalloon(id) {
-        var randleft = 1000*Math.random();
-        var randtop = 500*Math.random();
-        $('#'+id).animate({left:randleft,bottom:randtop},10000,function(){
+        var w = $(window).width();
+        var randleft = Math.max(0, (w - 100) * Math.random()); /* Secure horizontal constraint bounds */
+        var randtop = 500 * Math.random();
+        $('#'+id).animate({left:randleft,bottom:randtop}, 8000 + (Math.random()*4000), function(){
             loopBalloon(id);
         });
     }
