@@ -1404,6 +1404,23 @@ audio {
     
     body, html { overflow-x: hidden; }
 
+    /* Fix Album Photos Stacking on Mobile Screens */
+    @media (max-width: 768px) {
+        .album-photo {
+            width: 130px !important;
+            padding: 6px 6px 0 6px !important;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+        }
+        .album-photo .quote {
+            font-size: 11px !important;
+            margin: 8px 0 6px 0 !important;
+        }
+        .album-left-1 { top: 70px !important; left: 5px !important; }
+        .album-left-2 { top: 250px !important; left: -5px !important; }
+        .album-right-1 { top: 70px !important; right: 5px !important; }
+        .album-right-2 { top: 250px !important; right: -5px !important; }
+    }
+
     /* Move can-zoom text so it doesn't overlap on top of album images */
     .can-zoom {
         top: 85% !important;

@@ -259,31 +259,43 @@
   left: 0;
 }
 
-/* ============================================== Album
-*/
+/* ============================================== Album Polaroid Theme */
 .album-photo {
   display: none;
   position: absolute;
-  width: 300px; /* looks like landscape photo */
-  height: auto;
-  border: 5px solid white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-  border-radius: 10px;
+  width: 250px;
+  background: white;
+  padding: 12px 12px 0 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  border-radius: 4px;
   transition: transform 0.3s ease;
+  z-index: 5;
 }
-
+.album-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+.album-photo .quote {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin: 15px 0 12px 0;
+  font-weight: bold;
+}
 .album-photo:hover {
-  transform: scale(1.05) rotate(0deg);
-  z-index: 10;
+  z-index: 20 !important;
 }
 
 /* Left side */
 .album-left-1 { top: 30px; left: 50px; transform: rotate(-5deg); }
-.album-left-2 { top: 205px; left: 70px; transform: rotate(4deg); }
+.album-left-2 { top: 250px; left: 70px; transform: rotate(4deg); }
 
 /* Right side */
 .album-right-1 { top: 30px; right: 50px; transform: rotate(5deg); }
-.album-right-2 { top: 205px; right: 70px; transform: rotate(-4deg); }
+.album-right-2 { top: 250px; right: 70px; transform: rotate(-4deg); }
 
 
 /* ============================================== TEXT
@@ -317,10 +329,22 @@ p {
 
 <body>
 	<div class="loading"></div>
-  <img src="assets/images/pic1.jpeg" class="album-photo album-left-1">
-  <img src="assets/images/pic2.jpeg" class="album-photo album-left-2">
-  <img src="assets/images/pic3.jpeg" class="album-photo album-right-1">
-  <img src="assets/images/pic4.jpeg" class="album-photo album-right-2">
+  <div class="album-photo album-left-1">
+    <img src="assets/images/pic1.jpeg">
+    <p class="quote">You are my whole world ❤️</p>
+  </div>
+  <div class="album-photo album-left-2">
+    <img src="assets/images/pic2.jpeg">
+    <p class="quote">Forever and always yours ✨</p>
+  </div>
+  <div class="album-photo album-right-1">
+    <img src="assets/images/pic3.jpeg">
+    <p class="quote">Every second is magic 💫</p>
+  </div>
+  <div class="album-photo album-right-2">
+    <img src="assets/images/pic4.jpeg">
+    <p class="quote">I love you endlessly 🌙</p>
+  </div>
 
   <!-- Hint image -->
   <img src="assets/images/can-zoom.png" class="can-zoom">
