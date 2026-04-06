@@ -1433,6 +1433,13 @@ audio {
         .container {
             transform: scale(0.65);
             transform-origin: top center;
+            position: relative !important;
+            z-index: 50 !important; /* Forces the entire scaled canvas containing the message above the z-index 5 polaroids */
+        }
+        
+        /* Remove "Click to zoom" safely on mobile since screens are too cramped */
+        .can-zoom {
+            display: none !important;
         }
         
         .message {
