@@ -38,3 +38,61 @@
     75% { background-color: #E6E6FA; }
     100% { background-color: #FFA07A; }
 }
+
+/* =======================================================
+   REALISTIC 3D CAKE OVERRIDES
+   ======================================================= */
+
+/* Realistic Platform / Plate */
+.cake:after {
+  background: radial-gradient(ellipse at center, #ffffff 40%, #e0e0e0 100%) !important;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.5), inset 0 -5px 15px rgba(0,0,0,0.1) !important;
+  border: 1px solid #ccc;
+}
+
+/* Realistic Cake Base (Volumetric Sponge) */
+.bizcocho {
+  background: linear-gradient(to right, #4a2111 0%, #6d3826 20%, #8b4a35 50%, #6d3826 80%, #4a2111 100%) !important;
+  box-shadow: inset 0 20px 20px rgba(0,0,0,0.5), inset 0 -10px 20px rgba(0,0,0,0.3) !important;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Realistic Inner Frosting Layers */
+.bizcocho:after, .bizcocho:before {
+  background: linear-gradient(to right, rgba(200, 195, 191, 0.9) 0%, rgba(236,231,227,1) 50%, rgba(200, 195, 191, 0.9) 100%) !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2) !important;
+}
+
+/* Realistic Main Frosting Cover */
+.cobertura {
+  background: linear-gradient(to right, #d4cfcb 0%, #ece7e3 30%, #ffffff 50%, #ece7e3 70%, #d4cfcb 100%) !important;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3), inset 0 5px 10px rgba(255,255,255,0.8) !important;
+}
+
+/* Frosting drips */
+.cobertura:after, .cobertura:before {
+  background: linear-gradient(to bottom, #ece7e3 0%, #d4cfcb 100%) !important;
+  box-shadow: 2px 5px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.5) !important;
+}
+
+/* Realistic Volumetric Candle */
+.velas {
+  background: linear-gradient(to right, #cccccc 0%, #ffffff 50%, #cccccc 100%) !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
+}
+
+/* Candle Stripes */
+.velas:after, .velas:before {
+  background: linear-gradient(to right, rgba(200,0,0,0.8) 0%, rgba(255,0,0,1) 50%, rgba(200,0,0,0.8) 100%) !important;
+}
+
+/* Brighter Flame Aura */
+.fuego {
+  box-shadow: 0 0 45px 15px rgba(255,165,0,0.7) !important;
+}
+
+/* Profile Image Deep Shadow */
+.profile-img {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
+    border: 4px solid #fff !important;
+}
