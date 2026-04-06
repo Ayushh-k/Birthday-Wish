@@ -1,116 +1,95 @@
-/* Custom Aesthetic UI Enhancements */
+/* =======================================================
+   FULL CARTOON COMIC THEME OVERHAUL 🎨
+   ======================================================= */
 
-/* Super Realistic Drop Shadows on the Lights */
-.bulb-glow-yellow, .bulb-glow-yellow-after { filter: drop-shadow(0px 0px 30px #F2B300); }
-.bulb-glow-red, .bulb-glow-red-after { filter: drop-shadow(0px 0px 30px #D14D39); }
-.bulb-glow-blue, .bulb-glow-blue-after { filter: drop-shadow(0px 0px 30px #0719D4); }
-.bulb-glow-green, .bulb-glow-green-after { filter: drop-shadow(0px 0px 30px #99C96A); }
-.bulb-glow-pink, .bulb-glow-pink-after { filter: drop-shadow(0px 0px 30px #E91E63); }
-.bulb-glow-orange, .bulb-glow-orange-after { filter: drop-shadow(0px 0px 30px #FF9800); }
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Itim&display=swap');
 
-/* Swaying Animation for all Balloons */
-.balloons-rotate-behaviour-one {
-    animation: balloon_sway_one 4s ease-in-out infinite alternate !important;
-}
-.balloons-rotate-behaviour-two {
-    animation: balloon_sway_two 5s ease-in-out infinite alternate !important;
+/* Typography Global Override */
+body, h1, h2, p, button {
+    font-family: 'Fredoka One', 'Comic Sans MS', cursive !important;
 }
 
-@keyframes balloon_sway_one {
-    0% { transform: rotate(-5deg); }
-    100% { transform: rotate(10deg); }
+/* 1. Playful Animated Backgrounds */
+body {
+    background: repeating-linear-gradient(
+        -45deg,
+        #4FC3F7, #4FC3F7 40px,
+        #29B6F6 40px, #29B6F6 80px
+    ) !important;
+    background-size: 114px 114px !important;
+    animation: scroll_bg 4s linear infinite !important;
 }
-
-@keyframes balloon_sway_two {
-    0% { transform: rotate(8deg); }
-    100% { transform: rotate(-6deg); }
-}
-
-/* Enhancing Body Glow Background for party feel */
 .peach-after {
-    animation: peach_rich_alive linear 8s infinite !important;
+    /* Colorful party background after turning on lights */
+    background: repeating-linear-gradient(
+        -45deg,
+        #FF8A65, #FF8A65 40px,
+        #FF7043 40px, #FF7043 80px
+    ) !important;
+    background-size: 114px 114px !important;
+    animation: scroll_bg_fast 2s linear infinite !important;
 }
 
-@keyframes peach_rich_alive {
-    0% { background-color: #FFA07A; }
-    25% { background-color: #FFB6C1; }
-    50% { background-color: #FFDAB9; }
-    75% { background-color: #E6E6FA; }
-    100% { background-color: #FFA07A; }
+@keyframes scroll_bg {
+    0% { background-position: 0 0; }
+    100% { background-position: 114px 114px; }
+}
+@keyframes scroll_bg_fast {
+    0% { background-position: 0 0; }
+    100% { background-position: 114px 114px; }
 }
 
-/* =======================================================
-   REALISTIC 3D CAKE OVERRIDES
-   ======================================================= */
-
-/* Realistic Platform / Plate */
-.cake:after {
-  background: radial-gradient(ellipse at center, #ffffff 40%, #e0e0e0 100%) !important;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.5), inset 0 -5px 15px rgba(0,0,0,0.1) !important;
-  border: 1px solid #ccc;
+/* 2. Comic Speech Bubble for the Message */
+.message {
+    background: #ffffff !important;
+    border: 6px solid #111 !important;
+    border-radius: 40px !important;
+    box-shadow: 12px 12px 0 #111 !important;
+    padding: 30px !important;
+    margin: 40px auto !important;
+    max-width: 80% !important;
+    position: relative !important;
+    display: none;
 }
 
-/* Realistic Cake Base (Volumetric Sponge) */
-.bizcocho {
-  background: linear-gradient(to right, #4a2111 0%, #6d3826 20%, #8b4a35 50%, #6d3826 80%, #4a2111 100%) !important;
-  box-shadow: inset 0 20px 20px rgba(0,0,0,0.5), inset 0 -10px 20px rgba(0,0,0,0.3) !important;
-  border-radius: 5px 5px 0 0;
+/* Speech bubble tail */
+.message::after {
+    content: '';
+    position: absolute;
+    bottom: -35px;
+    left: 80px;
+    border-width: 35px 35px 0 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+    z-index: 2;
+}
+.message::before {
+    content: '';
+    position: absolute;
+    bottom: -48px;
+    left: 74px;
+    border-width: 44px 44px 0 0;
+    border-style: solid;
+    border-color: #111 transparent transparent transparent;
+    z-index: 1;
 }
 
-/* Realistic Inner Frosting Layers */
-.bizcocho:after, .bizcocho:before {
-  background: linear-gradient(to right, rgba(200, 195, 191, 0.9) 0%, rgba(236,231,227,1) 50%, rgba(200, 195, 191, 0.9) 100%) !important;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2) !important;
+.message p {
+    font-size: 35px !important;
+    color: #FF4081 !important;
+    text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111 !important; 
+    line-height: 1.4 !important;
 }
 
-/* Realistic Main Frosting Cover */
-.cobertura {
-  background: linear-gradient(to right, #d4cfcb 0%, #ece7e3 30%, #ffffff 50%, #ece7e3 70%, #d4cfcb 100%) !important;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3), inset 0 5px 10px rgba(255,255,255,0.8) !important;
-}
-
-/* Frosting drips */
-.cobertura:after, .cobertura:before {
-  background: linear-gradient(to bottom, #ece7e3 0%, #d4cfcb 100%) !important;
-  box-shadow: 2px 5px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.5) !important;
-}
-
-/* Realistic Volumetric Candle */
-.velas {
-  background: linear-gradient(to right, #cccccc 0%, #ffffff 50%, #cccccc 100%) !important;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
-}
-
-/* Candle Stripes */
-.velas:after, .velas:before {
-  background: linear-gradient(to right, rgba(200,0,0,0.8) 0%, rgba(255,0,0,1) 50%, rgba(200,0,0,0.8) 100%) !important;
-}
-
-/* Brighter Flame Aura */
-.fuego {
-  box-shadow: 0 0 45px 15px rgba(255,165,0,0.7) !important;
-}
-
-/* Profile Image Deep Shadow */
-.profile-img {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
-    border: 4px solid #fff !important;
-}
-
-
-/* =======================================================
-   CARTOONIST UI OVERHAUL
-   ======================================================= */
-
-/* Pure CSS Cartoon Balloons */
+/* 3. Pure CSS Cartoon Balloons */
 .balloons {
     background-image: none !important;
     background: var(--c) !important;
     width: 80px !important;
     height: 100px !important;
     border-radius: 50% 50% 50% 50% / 45% 45% 55% 55% !important;
-    border: 3px solid #111 !important;
-    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.3), inset 5px 5px 15px rgba(255,255,255,0.4) !important;
+    border: 5px solid #111 !important;
+    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.2), inset 10px 10px 0 rgba(255,255,255,0.4) !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
@@ -121,56 +100,110 @@
 .balloons::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 10px solid var(--c);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 15px solid var(--c);
     z-index: -1;
+    filter: drop-shadow(0 4px 0 #111) drop-shadow(-4px 0 0 #111) drop-shadow(4px 0 0 #111);
 }
 
-/* The balloon text */
 .balloons h2 {
     color: #fff !important;
-    text-shadow: 2px 2px 0 #111, -2px -2px 0 #111, 2px -2px 0 #111, -2px 2px 0 #111 !important;
+    text-shadow: 3px 3px 0 #111, -3px -3px 0 #111, 3px -3px 0 #111, -3px 3px 0 #111 !important; 
+    font-size: 55px !important;
     font-weight: 900 !important;
-    font-size: 40px !important;
+    margin: 0 !important;
+    display: none;
 }
 
-/* Playful Cartoon Typography */
-p, h1, h2 {
-    font-family: 'Signika', 'Comic Sans MS', sans-serif !important;
-    font-weight: bold;
-}
+/* Swaying Animations */
+.balloons-rotate-behaviour-one { animation: b_sway_one 3s ease-in-out infinite alternate !important; }
+.balloons-rotate-behaviour-two { animation: b_sway_two 4s ease-in-out infinite alternate !important; }
+@keyframes b_sway_one { 0% { transform: rotate(-10deg); } 100% { transform: rotate(10deg); } }
+@keyframes b_sway_two { 0% { transform: rotate(12deg); } 100% { transform: rotate(-8deg); } }
 
-/* Tactile Bouncy Cartoon Buttons */
+/* 4. Playful Cartoon UI Buttons */
 .btn-primary {
-    border-radius: 30px !important;
-    border: 4px solid #111 !important;
-    box-shadow: 0 6px 0 #111 !important;
-    font-weight: 900 !important;
-    font-size: 16px !important;
+    border-radius: 50px !important;
+    border: 5px solid #111 !important;
+    box-shadow: 0 10px 0 #111 !important;
+    font-size: 18px !important;
     text-transform: uppercase !important;
-    letter-spacing: 1px;
-    background: #ffcf33 !important;
-    color: #111 !important;
-    transition: all 0.1s ease !important;
-    margin: 6px;
-}
-
-.btn-primary:active {
-    transform: translateY(6px) !important;
-    box-shadow: 0 0px 0 #111 !important;
-    background: #ffc107 !important;
-}
-
-.btn-primary:hover {
     background: #ffeb3b !important;
     color: #111 !important;
+    transition: all 0.1s ease !important;
+    padding: 12px 25px !important;
+    margin: 10px;
+    cursor: pointer !important;
+    position: relative;
+    top: 0;
+}
+.btn-primary:active {
+    top: 10px !important;
+    box-shadow: 0 0 0 #111 !important;
+    background: #ffc107 !important;
 }
 
 .navbar-fixed-bottom { background: transparent !important; }
 
+/* 5. Thick borders on Lights */
+.bulb {
+    filter: drop-shadow(0px 8px 0px #111);
+}
+.bulb-glow-yellow-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #F2B300); }
+.bulb-glow-red-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #D14D39); }
+.bulb-glow-blue-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #0719D4); }
+.bulb-glow-green-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #99C96A); }
+.bulb-glow-pink-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #E91E63); }
+.bulb-glow-orange-after { filter: drop-shadow(0px 8px 0px #111) drop-shadow(0 0 30px #FF9800); }
+
+/* 6. Cartoon Polaroid Photos */
+.album-photo {
+    border: 8px solid #fff !important;
+    border-bottom-width: 25px !important;
+    box-shadow: 10px 10px 0 #111 !important;
+    border-radius: 5px !important;
+}
+
+/* 7. Flat Bold Cartoon Cake Overrides */
+.cake:after {
+  background: #f8f8f8 !important;
+  box-shadow: 0 10px 0 #111 !important;
+  border: 5px solid #111 !important;
+}
+.bizcocho {
+  background: #F4A460 !important;
+  box-shadow: inset 0 -15px 0 rgba(0,0,0,0.2) !important;
+  border: 5px solid #111 !important;
+  border-bottom: none !important;
+}
+.bizcocho:after, .bizcocho:before {
+  background: #FFFACD !important;
+  border: 3px solid #111 !important;
+}
+.cobertura {
+  background: #ffb6c1 !important;
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,0.1), 0 5px 0 #111 !important;
+  border: 5px solid #111 !important;
+}
+.cobertura:after, .cobertura:before {
+  background: #ffb6c1 !important;
+  box-shadow: 0 5px 0 #111 !important;
+  border: 5px solid #111 !important;
+}
+.velas {
+  background: #87CEEB !important;
+  border: 3px solid #111 !important;
+  box-shadow: 0 4px 0 #111 !important;
+}
+.velas:after, .velas:before { background: #FF69B4 !important; }
+.fuego {
+  background: #FFD700 !important;
+  border: 3px solid #111 !important;
+  box-shadow: 0 10px 20px #FF8C00 !important;
+}
